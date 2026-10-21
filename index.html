@@ -1,0 +1,345 @@
+```html
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Watashi no Kazoku</title>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Poppins:wght@400;600;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #fff0f5, #fce4ec, #f8e8ff);
+            color: #704455;
+            min-height: 100vh;
+        }
+
+        header {
+            text-align: center;
+            padding: 45px 20px 25px;
+        }
+
+        header h1 {
+            font-family: 'Noto Sans JP', sans-serif;
+            font-size: 45px;
+            color: #d65f89;
+        }
+
+        header h2 {
+            color: #a84c70;
+            margin-top: 8px;
+        }
+
+        header p {
+            margin-top: 12px;
+        }
+
+        main {
+            max-width: 1000px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        .judul {
+            text-align: center;
+            margin: 25px 0;
+        }
+
+        .judul span {
+            display: inline-block;
+            background: #d65f89;
+            color: white;
+            padding: 10px 25px;
+            border-radius: 30px;
+        }
+
+        .keluarga {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 22px;
+        }
+
+        .kartu {
+            display: flex;
+            gap: 18px;
+            align-items: flex-start;
+            background: rgba(255, 255, 255, 0.85);
+            border: 1px solid #f3c2d3;
+            border-radius: 22px;
+            padding: 18px;
+            box-shadow: 0 8px 20px #d98ca522;
+        }
+
+        .foto-area {
+            width: 140px;
+            flex-shrink: 0;
+        }
+
+        .foto {
+            width: 100%;
+            height: 175px;
+            object-fit: cover;
+            border-radius: 15px;
+            border: 3px solid #f4c4d5;
+        }
+
+        .pilih-foto {
+            display: block;
+            text-align: center;
+            background: #d65f89;
+            color: white;
+            padding: 9px 5px;
+            border-radius: 20px;
+            margin-top: 10px;
+            font-size: 12px;
+            cursor: pointer;
+        }
+
+        .pilih-foto:hover {
+            background: #b94470;
+        }
+
+        input[type="file"] {
+            display: none;
+        }
+
+        .peran {
+            display: inline-block;
+            background: #fce0e9;
+            color: #b94470;
+            border-radius: 20px;
+            padding: 5px 12px;
+            font-size: 13px;
+            font-weight: bold;
+        }
+
+        .jepang {
+            font-family: 'Noto Sans JP', sans-serif;
+            font-size: 30px;
+            color: #d65f89;
+            margin-top: 8px;
+        }
+
+        .romaji {
+            font-style: italic;
+            color: #927481;
+        }
+
+        .garis {
+            height: 1px;
+            background: #f0c6d5;
+            margin: 10px 0;
+        }
+
+        .deskripsi {
+            font-size: 13px;
+            line-height: 1.8;
+        }
+
+        .penutup {
+            text-align: center;
+            padding: 35px 15px;
+            margin-top: 35px;
+            border-top: 1px solid #e8b5c8;
+        }
+
+        .penutup h3 {
+            font-size: 20px;
+            color: #b94470;
+        }
+
+        .penutup p {
+            margin-top: 10px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            font-size: 12px;
+            color: #987786;
+        }
+
+        @media (max-width: 700px) {
+            .keluarga {
+                grid-template-columns: 1fr;
+            }
+
+            header h1 {
+                font-size: 34px;
+            }
+
+            .foto-area {
+                width: 120px;
+            }
+
+            .foto {
+                height: 155px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <p></p>
+        <h1>わたしのかぞく</h1>
+        <h2>Watashi no Kazoku</h2>
+        <p>"Keluargaku"</p>
+        <p></p>
+    </header>
+
+    <main>
+
+        <div class="judul">
+            <span>Generasi 1 — Orang Tua</span>
+        </div>
+
+        <section class="keluarga">
+
+            <article class="kartu">
+                <div class="foto-area">
+                    <img class="foto" alt="Foto Ayah" hidden>
+                    <label class="pilih-foto">
+                        Tambah Foto Ayah
+                        <input type="file" accept="image/*"
+                        onchange="pilihFoto(event, this)">
+                    </label>
+                </div>
+
+                <div>
+                    <span class="peran">Ayah</span>
+                    <div class="jepang">ちち</div>
+                    <div class="romaji">Chichi</div>
+                    <div class="garis"></div>
+                    <p class="deskripsi">
+                        ちちは くろい ふくを きています。とても かっこよくて、やさしい ひとです。
+                        Chichi wa kuroi fuku o kite imasu. Totemo kakkoii de, yasashii hito desu.
+                    </p>
+                </div>
+            </article>
+
+            <article class="kartu">
+                <div class="foto-area">
+                    <img class="foto" alt="Foto Ibu" hidden>
+                    <label class="pilih-foto">
+                        Tambah Foto Ibu
+                        <input type="file" accept="image/*"
+                        onchange="pilihFoto(event, this)">
+                    </label>
+                </div>
+
+                <div>
+                    <span class="peran">Ibu</span>
+                    <div class="jepang">はは</div>
+                    <div class="romaji">Haha</div>
+                    <div class="garis"></div>
+                    <p class="deskripsi">
+                        ははは きいろい ヒジャブを かぶっています。とても きれいで、やさしい ひとです。
+                        Haha wa kiiroi hijabu o kabutte imasu. Totemo kirei de, yasashii hito desu.
+                    </p>
+                </div>
+            </article>
+
+        </section>
+
+        <div class="judul">
+            <span>Generasi 2 — Anak</span>
+        </div>
+
+        <section class="keluarga">
+
+            <article class="kartu">
+                <div class="foto-area">
+                    <img class="foto" alt="Foto Saya" hidden>
+                    <label class="pilih-foto">
+                        Tambah Foto Saya
+                        <input type="file" accept="image/*"
+                        onchange="pilihFoto(event, this)">
+                    </label>
+                </div>
+
+                <div>
+                    <span class="peran">Saya</span>
+                    <div class="jepang">わたし</div>
+                    <div class="romaji">Watashi</div>
+                    <div class="garis"></div>
+                    <p class="deskripsi">
+                         わたしは あおい ヒジャブを かぶっています。かわいくて、やさしい ひとです。
+                        Watashi wa aoi hijabu o kabutte imasu. Kawaii de, yasashii hito desu.
+                    </p>
+                </div>
+            </article>
+
+            <article class="kartu">
+                <div class="foto-area">
+                    <img class="foto" alt="Foto Adik Perempuan" hidden>
+                    <label class="pilih-foto">
+                        Tambah Foto Adik
+                        <input type="file" accept="image/*"
+                        onchange="pilihFoto(event, this)">
+                    </label>
+                </div>
+
+                <div>
+                    <span class="peran">Adik Perempuan</span>
+                    <div class="jepang">いもうと</div>
+                    <div class="romaji">Imouto</div>
+                    <div class="garis"></div>
+                    <p class="deskripsi">
+                        いもうとは しろい ヒジャブを かぶっています。きれいで、あかるい ひとです。
+                        Imouto wa shiroi hijabu o kabutte imasu. Kirei de, akarui hito desu.
+                    </p>
+                </div>
+            </article>
+
+        </section>
+
+        <div class="penutup">
+            <h3>“Keluarga adalah kebahagiaanku.”</h3>
+            <p>かぞくが だいすきです。</p>
+            <p>Kazoku ga daisuki desu.</p>
+            <p>Aku sangat menyayangi keluargaku.</p>
+        </div>
+
+    </main>
+
+    <footer>
+        Website Bahasa Jepang — Watashi no Kazoku
+    </footer>
+
+    <script>
+        function pilihFoto(event, input) {
+            const file = input.files[0];
+
+            if (!file) return;
+
+            if (!file.type.startsWith("image/")) {
+                alert("Pilih file gambar ya!");
+                input.value = "";
+                return;
+            }
+
+            const area = input.closest(".foto-area");
+            const img = area.querySelector(".foto");
+            const reader = new FileReader();
+
+            reader.onload = function(e) {
+                img.src = e.target.result;
+                img.hidden = false;
+            };
+
+            reader.readAsDataURL(file);
+        }
+    </script>
+
+</body>
+</html>
